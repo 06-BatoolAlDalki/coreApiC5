@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coreApiC5.Server", "coreApiC5.Server\coreApiC5.Server.csproj", "{EA8958B7-7627-4863-AB05-B0A754EF2819}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "coreapic5.client", "coreapic5.client\coreapic5.client.esproj", "{D660718F-8DA0-4717-A376-50F02B126EA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA8958B7-7627-4863-AB05-B0A754EF2819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA8958B7-7627-4863-AB05-B0A754EF2819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA8958B7-7627-4863-AB05-B0A754EF2819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA8958B7-7627-4863-AB05-B0A754EF2819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D660718F-8DA0-4717-A376-50F02B126EA3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B18BEA3-91B8-4E64-AE7C-F4A43C589DE5}
+	EndGlobalSection
+EndGlobal

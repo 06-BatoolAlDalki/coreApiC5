@@ -1,0 +1,6 @@
+@coreApiC5.Server_HostAddress = http://localhost:5173
+
+GET {{coreApiC5.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

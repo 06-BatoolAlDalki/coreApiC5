@@ -1,0 +1,56 @@
+﻿using coreApiC5.Server.IDataService;
+
+using Microsoft.AspNetCore.Mvc;
+
+namespace coreApiC5.Server.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController] // presentation layer 
+    public class TeacherController : ControllerBase
+    {
+        private readonly IDataServicee _data;
+        public TeacherController(IDataServicee data)
+        {
+            _data = data;
+
+        }
+
+
+        [HttpGet]
+        public IActionResult getTeachers()
+        {
+            var teachers = _data.getTeachers();
+            return Ok(teachers);
+        }
+
+        [HttpGet("getTeacherById/{id}")]
+        public IActionResult getTeacherById(int id)
+        {
+            var teacher = _data.getTeacherById(id);
+            return Ok(teacher);
+        }
+
+        [HttpGet("getTeacherByName/{name}")]
+        public IActionResult getTeacherByName(string name)
+        {
+            var teacher = _data.getTeacherByName(name);
+            return Ok(teacher);
+        }
+
+
+        [HttpDelete]
+        public IActionResult deleteTeacher(int id)
+        {
+
+            var teacher = _data.deleteTeacher(id); // var ==> int , bool , string 
+            if (teacher == true)
+            {
+
+                return NoContent();
+            }
+
+            return NotFound();
+
+        }
+    }
+}
