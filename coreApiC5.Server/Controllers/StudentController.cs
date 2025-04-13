@@ -1,4 +1,5 @@
-﻿using coreApiC5.Server.IDataService;
+﻿using coreApiC5.Server.DTO;
+using coreApiC5.Server.IDataService;
 using coreApiC5.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +39,8 @@ namespace coreApiC5.Server.Controllers
             }
         }
 
-        [HttpGet("getStudentByName")]
-        public IActionResult getStudentByName([FromQuery] string name)
+        [HttpGet("getStudentByName/{name}")]
+        public IActionResult getStudentByName( string name)
         {
             var students = _data.getStudentByName(name);
             if (students != null)
@@ -75,6 +76,40 @@ namespace coreApiC5.Server.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult addStudent([FromBody] studentRequestDTO studentData)
+        {
+
+            // presentation layer 
+            if (studentData == null)
+                return BadRequest();
+
+
+            bool added = _data.addStudent(studentData);
+            if (added == false)
+                return BadRequest();
+            else
+                return StatusCode(201, studentData);
+
+        }
+        // routing parameters
+
+        [HttpPut("editStudent/{id}")]
+        public IActionResult editStudent(int id , [FromForm] studentRequestDTO student )
+        {
+            if(student == null)
+                return BadRequest();
+            else
+            {
+                bool updated = _data.editStudent(id, student);
+                if (updated == false)
+                    return BadRequest();
+                else
+                    return Ok("student info updated successfully");
+            }
+
+
+        } 
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using coreApiC5.Server.DTO;
 using coreApiC5.Server.IDataService;
 using coreApiC5.Server.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -95,6 +96,43 @@ namespace coreApiC5.Server.DataService
                 return true;
             }
             return false;
+
+        }
+
+
+        //bussiness logic layer + model (database)
+        public bool addStudent(studentRequestDTO student)
+        {
+            var obj = new Student
+            {
+                Name = student.Name,
+                Email = student.Email,
+            };
+            _db.Students.Add(obj);
+            _db.SaveChanges();
+            return true;
+
+
+        }
+
+        public bool editStudent(int id, studentRequestDTO student)
+        {
+
+            var existStudent = _db.Students.Find(id);
+
+            if (existStudent == null)
+                return false;
+            else
+            {
+                existStudent.Name = student.Name;
+                existStudent.Email = student.Email;
+                _db.SaveChanges();
+                return true;
+                  
+
+            }
+
+           
 
         }
 

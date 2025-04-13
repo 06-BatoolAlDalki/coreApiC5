@@ -1,4 +1,6 @@
-﻿using coreApiC5.Server.Models;
+﻿using coreApiC5.Server.DTO;
+using coreApiC5.Server.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace coreApiC5.Server.IDataService
 {
@@ -17,5 +19,10 @@ namespace coreApiC5.Server.IDataService
         public Student getFirstStudent();
         public bool deleteTeacher(int id);
         public bool deleteStudent(int id);
+
+        public bool addStudent(studentRequestDTO student);
+
+
+        public bool editStudent(int id, studentRequestDTO student);
     }
 }
