@@ -63,7 +63,7 @@ namespace coreApiC5.Server.Controllers
 
         }
 
-        [HttpDelete("delete student")]
+        [HttpDelete("deleteStudent")]
         public IActionResult deleteStudent(int id)
         {
             var student = _data.deleteStudent(id);
@@ -77,7 +77,7 @@ namespace coreApiC5.Server.Controllers
         }
 
         [HttpPost]
-        public IActionResult addStudent([FromBody] studentRequestDTO studentData)
+        public IActionResult addStudent([FromForm] studentRequestDTO studentData)
         {
 
             // presentation layer 
@@ -105,7 +105,7 @@ namespace coreApiC5.Server.Controllers
                 if (updated == false)
                     return BadRequest();
                 else
-                    return Ok("student info updated successfully");
+                    return Ok();
             }
 
 

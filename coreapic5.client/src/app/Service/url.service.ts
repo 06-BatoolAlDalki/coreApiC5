@@ -13,4 +13,7 @@ export class UrlService {
 
     return this._http.get("https://localhost:7000/api/Student/getStudents")
   }
+
+
+  
 }

@@ -24,5 +24,20 @@ namespace coreApiC5.Server.IDataService
 
 
         public bool editStudent(int id, studentRequestDTO student);
+
+
+
+
+
+        public List<Teacher> Get_ALL_Teachers_From_OMar();
+        public Teacher getTeacherByID(int id);
+
+        public List<Teacher> getTeacherByNameSura(string name);
+        public bool deleteTeacherHani(int id);
+
+
+        public bool Login(loginUserDTO user);
+
+        public bool Register(addUserDTO user);
     }
 }

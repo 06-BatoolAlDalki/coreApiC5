@@ -135,7 +135,71 @@ namespace coreApiC5.Server.DataService
            
 
         }
+        public List<Teacher> Get_ALL_Teachers_From_OMar()
+        {
+            var data = _db.Teachers.ToList();
+            return data;
+        }
+
+        public Teacher getTeacherByID(int id)
+        {
+            var teacher = _db.Teachers.Find(id);
+            return teacher;
+        }
+        public List<Teacher> getTeacherByNameSura(string name)
+        {
+            var teacher = _db.Teachers.Where(x=>x.Name == name).ToList();
+            return teacher;
+        }
+        public bool deleteTeacherHani(int id)
+        {
+            var teacher = _db.Teachers.Find(id);
+            if(teacher != null)
+            {
+                _db.Teachers.Remove(teacher);
+                _db.SaveChanges();
+                return true;
+
+            }
+            return false;
+
+            
+        }
 
 
+        public bool Login(loginUserDTO user)
+        {
+            var existUser = _db.Users.FirstOrDefault(x => x.Email == user.Email && x.Password == user.Password);
+            if (existUser == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
+        }
+
+        public bool Register(addUserDTO user)
+        {
+
+            var existUser = _db.Users.FirstOrDefault(x => x.Email == user.Email);
+            if (existUser != null)
+                return false;
+
+
+            var newUser = new User
+            {
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password,
+            };
+
+            _db.Users.Add(newUser);
+            _db.SaveChanges();
+            return true;
+
+        }
     }
 }
